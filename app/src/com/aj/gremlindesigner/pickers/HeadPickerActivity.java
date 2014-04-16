@@ -17,7 +17,7 @@ public class HeadPickerActivity extends PickerActivity {
 	@Override
 	public void goToNextPicker() {
 		Intent intent = new Intent(getApplicationContext(), BodyPickerActivity.class);
-		wagon.pack(intent);
+		getWagon().pack(intent);
 		startActivity(intent);
 	}
 

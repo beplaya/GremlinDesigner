@@ -16,7 +16,7 @@ public class EyesPickerActivity extends PickerActivity {
 
 	@Override
 	public void goToNextPicker() {
-		wagon.pack(getSharedPreferences(GremlinConstants.PREF_KEY_GREMLIN, MODE_PRIVATE));
+		getWagon().pack(getSharedPreferences(GremlinConstants.PREF_KEY_GREMLIN, MODE_PRIVATE));
 		Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 		startActivity(intent);
 	}
@@ -24,7 +24,7 @@ public class EyesPickerActivity extends PickerActivity {
 	@Override
 	public void goToPreviousPicker() {
 		Intent intent = new Intent(getApplicationContext(), FeetPickerActivity.class);
-		wagon.pack(intent);
+		getWagon().pack(intent);
 		startActivity(intent);
 	}
 

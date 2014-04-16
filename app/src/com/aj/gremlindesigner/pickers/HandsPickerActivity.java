@@ -16,14 +16,14 @@ public class HandsPickerActivity extends PickerActivity {
 	@Override
 	public void goToNextPicker() {
 		Intent intent = new Intent(getApplicationContext(), FeetPickerActivity.class);
-		wagon.pack(intent);
+		getWagon().pack(intent);
 		startActivity(intent);
 	}
 
 	@Override
 	public void goToPreviousPicker() {
 		Intent intent = new Intent(getApplicationContext(), BodyPickerActivity.class);
-		wagon.pack(intent);
+		getWagon().pack(intent);
 		startActivity(intent);
 	}
 

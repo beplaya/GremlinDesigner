@@ -18,7 +18,7 @@ public abstract class PickerActivity extends BaseActivity implements ISwipeListe
 
 	private ImageView pickerView;
 	private GremlinBuilder gremlinBuilder = new GremlinBuilder();
-	protected Wagon<GremlinBuilder> wagon;
+	private Wagon<GremlinBuilder> wagon;
 	private int optionIndex = 0;
 
 	@Override
@@ -32,10 +32,14 @@ public abstract class PickerActivity extends BaseActivity implements ISwipeListe
 
 		pickerView.setOnTouchListener(new Swiper(this, this));
 
-		wagon = new Wagon<GremlinBuilder>(gremlinBuilder.getClass(), gremlinBuilder);
+		wagon = getWagon();
 		wagon.unpack(getIntent());
-		showGremlin(gremlinBuilder.gremlin);
+		refreshGremlin();
 		refreshPickerView();
+	}
+
+	protected Wagon<GremlinBuilder> getWagon() {
+		return new Wagon<GremlinBuilder>(gremlinBuilder.getClass(), gremlinBuilder);
 	}
 
 	@Override
